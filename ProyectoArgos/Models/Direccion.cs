@@ -16,4 +16,6 @@ public partial class Direccion
     public string? Referencia { get; set; }
 
     public virtual Usuario IdUsuarioNavigation { get; set; } = null!;
+
+    public virtual ICollection<Pedido> Pedidos { get; set; } = new List<Pedido>();
 }
