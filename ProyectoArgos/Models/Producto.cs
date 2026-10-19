@@ -23,9 +23,13 @@ public partial class Producto
 
     public bool Activo { get; set; }
 
+    public virtual ICollection<DetalleCarrito> DetalleCarritos { get; set; } = new List<DetalleCarrito>();
+
     public virtual DetalleComic? DetalleComic { get; set; }
 
     public virtual DetalleLibro? DetalleLibro { get; set; }
+
+    public virtual ICollection<DetallePedido> DetallePedidos { get; set; } = new List<DetallePedido>();
 
     public virtual Categorium IdCategoriaNavigation { get; set; } = null!;
 }

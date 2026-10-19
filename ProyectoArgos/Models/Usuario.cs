@@ -25,7 +25,11 @@ public partial class Usuario
 
     public DateTime FechaRegistro { get; set; }
 
+    public virtual Carrito? Carrito { get; set; }
+
     public virtual ICollection<Direccion> Direccions { get; set; } = new List<Direccion>();
 
     public virtual Rol IdRolNavigation { get; set; } = null!;
+
+    public virtual ICollection<Pedido> Pedidos { get; set; } = new List<Pedido>();
 }
