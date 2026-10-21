@@ -1,0 +1,20 @@
+<h1>Catálogo</h1>
+
+<div class="filtros">
+  <button (click)="categoriaActiva.set(null)">Todos</button>
+  @for (c of productoService.categorias(); track c.idCategoria) {
+    <button (click)="categoriaActiva.set(c.idCategoria)">{{ c.nombre }}</button>
+  }
+</div>
+
+@if (productoService.cargando()) {
+  <p>Cargando...</p>
+} @else if (productoService.error()) {
+  <p>{{ productoService.error() }}</p>
+} @else {
+  <section class="grid">
+    @for (p of productosFiltrados(); track p.idProducto) {
+      <app-product-card [producto]="p" />
+    }
+  </section>
+}
