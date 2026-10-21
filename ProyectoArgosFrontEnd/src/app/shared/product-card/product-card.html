@@ -1,0 +1,18 @@
+<article class="card">
+  <a [routerLink]="['/producto', producto().idProducto]">
+    <img
+      [src]="producto().imagenUrl ?? 'https://placehold.co/300x400?text=' + producto().nombre"
+      [alt]="producto().nombre"
+    />
+    <h3>{{ producto().nombre }}</h3>
+  </a>
+
+  <p class="anime">{{ producto().autor ?? producto().franquicia }}</p>
+  <p class="precio">S/ {{ producto().precio }}</p>
+
+  @if (producto().stock > 0) {
+    <button>Agregar al carrito</button>
+  } @else {
+    <button disabled>Sin stock</button>
+  }
+</article>

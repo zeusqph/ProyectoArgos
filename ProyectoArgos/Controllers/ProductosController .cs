@@ -192,7 +192,7 @@ namespace ProyectoArgos.Controllers
 
             await _dbcontext.SaveChangesAsync();
 
-            var resultado = _dbcontext.Productos.AsNoTracking()
+            var resultado = await _dbcontext.Productos.AsNoTracking()
                 .Where(p => p.IdProducto == id)
                 .Select(ADto)
                 .FirstAsync();
