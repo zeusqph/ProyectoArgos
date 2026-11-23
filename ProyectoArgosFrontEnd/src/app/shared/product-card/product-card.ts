@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, computed, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Producto } from '../../models/producto';
 
@@ -10,4 +10,14 @@ import { Producto } from '../../models/producto';
 })
 export class ProductCard {
   producto = input.required<Producto>();
+
+  imagen = computed(() => {
+    const p = this.producto();
+
+    if (!p.imagenUrl) {
+      return 'https://placehold.co/300x400?text=' + encodeURIComponent(p.nombre);
+    }
+
+    return p.imagenUrl;   // sin anteponer el host: la imagen viene del frontend (carpeta public)
+  });
 }

@@ -1,0 +1,37 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.9rem 2rem;
+  background: var(--primario);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.marca {
+  font-family: Georgia, serif;
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+.enlaces {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.enlaces a {
+  color: #c9d1e3;
+  padding-bottom: 2px;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.enlaces a:hover,
+.enlaces a.activo {
+  color: #fff;
+  border-bottom-color: var(--acento);
+}

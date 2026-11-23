@@ -1,18 +1,21 @@
 <article class="card">
-  <a [routerLink]="['/producto', producto().idProducto]">
-    <img
-      [src]="producto().imagenUrl ?? 'https://placehold.co/300x400?text=' + producto().nombre"
-      [alt]="producto().nombre"
-    />
-    <h3>{{ producto().nombre }}</h3>
-  </a>
+  <div class="portada">
+    <img [src]="imagen()" [alt]="producto().nombre" />
+    <span class="categoria">{{ producto().categoria }}</span>
+  </div>
 
-  <p class="anime">{{ producto().autor ?? producto().franquicia }}</p>
-  <p class="precio">S/ {{ producto().precio }}</p>
+  <div class="cuerpo">
+    <a [routerLink]="['/producto', producto().idProducto]" class="titulo">
+      <h3>{{ producto().nombre }}</h3>
+    </a>
 
-  @if (producto().stock > 0) {
-    <button>Agregar al carrito</button>
-  } @else {
-    <button disabled>Sin stock</button>
-  }
+    <p class="autor">{{ producto().autor ?? producto().franquicia }}</p>
+    <p class="precio">S/ {{ producto().precio.toFixed(2) }}</p>
+
+    @if (producto().stock > 0) {
+      <button class="agregar">Agregar al carrito</button>
+    } @else {
+      <button class="agregar" disabled>Sin stock</button>
+    }
+  </div>
 </article>

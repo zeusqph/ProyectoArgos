@@ -1,20 +1,34 @@
-<h1>Catálogo</h1>
+<section class="banner">
+  <h1>Catálogo</h1>
+  <p>Libros, mangas, cómics y figuras de acción en un solo lugar</p>
+</section>
 
 <div class="filtros">
-  <button (click)="categoriaActiva.set(null)">Todos</button>
+  <button [class.activa]="categoriaActiva() === null" (click)="categoriaActiva.set(null)">
+    Todos
+  </button>
   @for (c of productoService.categorias(); track c.idCategoria) {
-    <button (click)="categoriaActiva.set(c.idCategoria)">{{ c.nombre }}</button>
+    <button
+      [class.activa]="categoriaActiva() === c.idCategoria"
+      (click)="categoriaActiva.set(c.idCategoria)"
+    >
+      {{ c.nombre }}
+    </button>
   }
 </div>
 
 @if (productoService.cargando()) {
-  <p>Cargando...</p>
+  <p class="mensaje">Cargando productos...</p>
 } @else if (productoService.error()) {
-  <p>{{ productoService.error() }}</p>
+  <p class="mensaje error">{{ productoService.error() }}</p>
 } @else {
+  <p class="conteo">{{ productosFiltrados().length }} productos</p>
+
   <section class="grid">
     @for (p of productosFiltrados(); track p.idProducto) {
       <app-product-card [producto]="p" />
+    } @empty {
+      <p class="mensaje">No hay productos en esta categoría.</p>
     }
   </section>
 }

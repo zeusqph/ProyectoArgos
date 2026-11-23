@@ -44,4 +44,9 @@ export class ProductoService {
   obtenerPorId(id: number) {
     return this.http.get<Producto>(`${this.apiUrl}/${id}`);
   }
+  subirImagen(id: number, archivo: File) {
+  const datos = new FormData();
+  datos.append('archivo', archivo);   // mismo nombre que el parámetro del backend
+  return this.http.post<{ imagenUrl: string }>(`${this.apiUrl}/${id}/imagen`, datos);
+}
 }

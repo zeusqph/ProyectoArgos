@@ -4,6 +4,7 @@ import { Catalogo } from './pages/catalogo/catalogo';
 import { Detalle } from './pages/detalle/detalle';
 import { Carrito } from './pages/carrito/carrito';
 import { Navbar } from './shared/navbar/navbar';
+import { Admin } from './pages/admin/admin';
 
 export const routes: Routes = [
   { path: '', component: Home },
@@ -12,4 +13,5 @@ export const routes: Routes = [
   { path: 'carrito', component: Carrito },
   { path: '**', redirectTo: '' },
   { path: 'app-navbar', component: Navbar },
+  { path: 'admin', component: Admin },
 ];

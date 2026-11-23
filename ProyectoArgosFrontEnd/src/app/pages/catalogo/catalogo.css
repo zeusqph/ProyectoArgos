@@ -1,10 +1,73 @@
+:host {
+  display: block;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem 3rem;
+}
+
+.banner {
+  margin: 1.5rem 0;
+  padding: 2.5rem 2rem;
+  border-radius: var(--radio);
+  background: linear-gradient(135deg, var(--primario), #34466e);
+  color: #fff;
+}
+
+.banner h1 {
+  font-size: 2.4rem;
+}
+
+.banner p {
+  margin: 0.4rem 0 0;
+  color: #c9d1e3;
+}
+
 .filtros {
   display: flex;
-  gap: 0.5rem;
-  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
 }
+
+.filtros button {
+  padding: 0.5rem 1.2rem;
+  border: 1px solid var(--borde);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--texto);
+  transition: all 0.2s;
+}
+
+.filtros button:hover {
+  border-color: var(--acento);
+  color: var(--acento);
+}
+
+.filtros button.activa {
+  background: var(--acento);
+  border-color: var(--acento);
+  color: #fff;
+}
+
+.conteo {
+  margin: 0 0 1rem;
+  color: var(--suave);
+  font-size: 0.9rem;
+}
+
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
   gap: 1.5rem;
+}
+
+.mensaje {
+  grid-column: 1 / -1;
+  padding: 2rem;
+  text-align: center;
+  color: var(--suave);
+}
+
+.mensaje.error {
+  color: #b42318;
 }

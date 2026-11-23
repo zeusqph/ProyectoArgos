@@ -1,0 +1,9 @@
+<h1>Administrar productos</h1>
+<p>{{ mensaje() }}</p>
+
+@for (p of productoService.productos(); track p.idProducto) {
+  <div style="display:flex; gap:1rem; align-items:center; margin-bottom:.75rem">
+    <strong style="min-width:220px">{{ p.nombre }}</strong>
+    <input type="file" accept="image/*" (change)="onArchivo($event, p.idProducto)" />
+  </div>
+}
